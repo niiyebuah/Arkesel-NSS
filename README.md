@@ -1,4 +1,4 @@
 # Arkesel-NSS
-Arkesel National Service Training. 
+Arkesel National Service Training. (PHP) 
 
-This repository contains three branches representing PHP, LARAVEL and FLUTTER, used in training.
+This branch contains code for a mini ticketing system.
