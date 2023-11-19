@@ -1,4 +1,4 @@
 # Arkesel-NSS
-Arkesel National Service Training. (PHP) 
+Arkesel National Service Training. (FLUTTER) 
 
-This branch contains code for a mini ticketing system.
+Contains a to do list application, a weather application and a unique app which is a national service registration application.
