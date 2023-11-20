@@ -1,4 +1,5 @@
 # Arkesel-NSS
-Arkesel National Service Training. (LARAVEL) 
+Arkesel National Service Training.
 
-This branch contains code for a to do list app and an API
+Comprised of three other branches PHP, LARAVEL AND FLUTTER.
+
