@@ -48,7 +48,8 @@ class _WeatherAppState extends State<WeatherApp> {
             const SizedBox(height: 16),
             WeatherDisplay(
               temperature: weather?.currentWeather.temperature ?? 0,
-              description: getWeatherDescription(weather?.currentWeather.temperature ?? 0), rainfall: null,
+              rainfall: null,
+              description: getWeatherDescription(weather?.currentWeather.temperature ?? 0),
             ),
             const SizedBox(height: 16),
             ElevatedButton(
@@ -94,42 +95,38 @@ class _WeatherAppState extends State<WeatherApp> {
 
 class WeatherDisplay extends StatelessWidget {
   final double temperature;
-  final double rainfall; // New property for rainfall metric
+  final double? rainfall; // Make rainfall nullable
+  final String description;
 
   const WeatherDisplay({
     Key? key,
     required this.temperature,
-    required this.rainfall, required String description,
+    required this.rainfall,
+    required this.description,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     IconData icon;
     Color iconColor;
-    String description;
 
     if (temperature < 0) {
       icon = Icons.ac_unit; // Snowflake icon
       iconColor = Colors.blue; // Blue for snow
-      description = "Snowy and cold";
     } else if (temperature < 10) {
       icon = Icons.cloud; // Cloud icon
       iconColor = Colors.grey; // Grey for clouds
-      description = "Cloudy and cold";
     } else if (temperature < 25) {
       icon = Icons.wb_cloudy; // Cloudy icon
       iconColor = Colors.grey; // Grey for clouds
-      description = "Partly cloudy with mild weather";
     } else {
       icon = Icons.wb_sunny; // Sun icon
       iconColor = Colors.yellow; // Yellow for sun
-      description = "Sunny and pleasant";
     }
 
-    if (rainfall > 0) {
+    if (rainfall != null && rainfall! > 0) {
       icon = Icons.water; // Water icon for rainfall
       iconColor = Colors.blue; // Blue for water
-      description += " with ${rainfall.toStringAsFixed(1)} mm of rainfall"; // Add rainfall to description
     }
 
     return Column(
